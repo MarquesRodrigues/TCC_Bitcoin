@@ -6,7 +6,7 @@ import requests
 import configparser
 
 config = configparser.ConfigParser()
-config.read("backend/config.ini")
+config.read("btc_prediction/config.ini")
 
 database = pandas.read_csv(config.get(
     "DEFAULT", "API_DATABASE_1H"), header=1)

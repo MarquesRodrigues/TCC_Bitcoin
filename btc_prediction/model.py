@@ -1,7 +1,6 @@
 import pandas
 from sklearn import linear_model
 import json
-import numpy
 import requests
 import configparser
 
@@ -26,4 +25,8 @@ def prediction():
     close_predict = model.predict(
         [[api_response['open']] + [api_response['high']] + [api_response['low']]])
 
-    return(close_predict[0], api_response['open'])
+    actual_open = float(api_response['open'])
+
+    variation = ((close_predict[0] - actual_open) / actual_open) * 100
+
+    return(variation)

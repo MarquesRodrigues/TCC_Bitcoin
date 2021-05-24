@@ -1,8 +1,10 @@
 from tkinter import *
 import model
+import time
 
 root = Tk()
 
+curret_time = time.strftime('%H:00:00')
 
 class Funcs():
 
@@ -19,6 +21,9 @@ class Funcs():
         else:
             self.lb_variation.config(
                 text="Não haverá variação daqui a 1 hora")
+        
+        self.lb_hour = Label(self.frame, text="Intevalo da previsão: " + curret_time)
+        self.lb_hour.place(relx=0.11, rely=0.15, relwidth=0.8, relheight=0.07)
 
     def exit_program(self):
         exit()
@@ -56,8 +61,7 @@ class Application(Funcs):
     def labels(self):
         self.lb_label = Label(self.frame, text="Ferramenta para prever de forma aproximada" +
                               " a variação do preço do Bitcoin para a próxima hora")
-        self.lb_label.place(relx=0.14, rely=0.1, relwidth=0.7, relheight=0.07)
-
+        self.lb_label.place(relx=0.11, rely=0.1, relwidth=0.8, relheight=0.07)
         self.lb_variation = Label(self.frame)
         self.lb_variation.place(relx=0.14, rely=0.45,
                                 relwidth=0.7, relheight=0.1)

@@ -6,10 +6,9 @@ import configparser
 
 config = configparser.ConfigParser()
 
-config.read("btc_prediction/config.ini")
+config.read("config.ini")
 
-database = pandas.read_csv(config.get(
-    "DEFAULT", "API_DATABASE_1H"), header=1)
+database = pandas.read_csv(config.get("DEFAULT", "API_DATABASE_1H"), header=1)
 
 X = database.loc[:, ['Open', 'High', 'Low']]
 Y = database.loc[:, ['Close']]

@@ -129,8 +129,5 @@ dmypy.json
 .pyre/
 
 # Variables
-.config.ini
-config.ini
-.ini
 .csv
 trained_model
